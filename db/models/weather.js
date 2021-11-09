@@ -5,7 +5,7 @@ const weatherSchema = new mongoose.Schema(
         name : {
             type : String,
             require : [true,'please provide add name'],
-            uniq : true,
+            unique : true, // ! unique
             trim : true
         },
         weather : [
@@ -22,13 +22,9 @@ const weatherSchema = new mongoose.Schema(
         },
         clouds : {
             all: Number
-          },
-          createdAt: {
-            type: Date,
-            default: Date.now
-          }
+        }
     
-});
+}, {timestamps: true});
 
 
 const Weather = mongoose.model('Weather',weatherSchema);

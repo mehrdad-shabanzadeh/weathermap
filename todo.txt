@@ -1,0 +1,25 @@
+syntax:
+[] use extensions
+[] return responses
+[] promise base functions
+[] no semicolons
+[] use camelCase
+[] use router.router
+[] use meaningful variables
+[] indentation
+[] use try/catch for async codes
+[] use module.exports
+[] use services in controllers or instead of instead
+
+DB module:
+[] db drivers
+[] db services
+[] db models
+  [] use {timestamps: true}
+
+
+Environment variables:
+[] use pm2 instead of .env file
+[] use debug mode
+
+[] errors module

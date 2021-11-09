@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-const weatherRouter = require('./routes/weatherRouter');
 
 const app = express();
 
@@ -12,6 +11,6 @@ if(process.env.NODE_ENV === "development") {
 }
 
 
-app.use('/api/v1/7030',weatherRouter)
+app.use('/api/v1/7030', require('./routes/weatherRouter'))
 
 module.exports = app;

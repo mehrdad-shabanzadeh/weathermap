@@ -1,15 +1,25 @@
 const express = require ('express');
-const {
-    getNowWeathermap,
-    getTenLatestWeathermap,
-    getWeathermapByTime
-} = require('../controllers/weatherController');
-
 const router = express.Router();
 
-router.get('/now',getNowWeathermap);
-router.get('/tenlatest',getTenLatestWeathermap);
-router.get('/time',getWeathermapByTime);
+const SuccessHandler = require('../utils/successHandler')
+const ErrorHandler = require('../utils/errorHandler')
+
+const Services = require('../services')
+
+router.route('/now')
+    .get((req, res, next) => {
+        Services.Weather.getNowWeathermap(req.body)
+            .then((result) => {
+                return SuccessHandler(res, status, result, info)
+            })
+            .catch((err) => {
+                return ErrorHandler(res, status, err, info)
+            })
+    })
+
+router.get('/tenlatest', require('../services/weather'))
+
+router.get('/time', require('../services/weather'))
 
 
-module.exports = router;
+module.exports = router
